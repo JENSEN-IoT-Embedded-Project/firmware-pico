@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mosquitto.h>
-
+// to do -> wpa_supplicant for pico-w to connect to router
 void mosq() {
     int rc;
     struct mosquitto *mosq; // mosq library
@@ -25,7 +25,7 @@ void mosq() {
     mosquitto_loop_start(mosq);
 
     // struct, message id(null = autoassign), topic, size in bytes, message, QoS(1 gång), om brokern ska komma ihåg(false for now) 
-    rc = mosquitto_publish(mosq, NULL, "test", 17, "sensor triggered!", 1, false);
+    rc = mosquitto_publish(mosq, NULL, "test", 22, "pico sensor triggered!", 1, false);
     if (rc != MOSQ_ERR_SUCCESS) {
         printf("failed to publish message, return code: %d\n", rc);
     }
