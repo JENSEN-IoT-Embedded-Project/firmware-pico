@@ -1,8 +1,8 @@
 from machine import Pin
 import utime
 
-Trigger = Pin(27, Pin.OUT)
-Echo = Pin(26, Pin.IN)
+Trigger = Pin(13, Pin.OUT)
+Echo = Pin(12, Pin.IN)
 
 def measure_distance():
     time_start = 0
