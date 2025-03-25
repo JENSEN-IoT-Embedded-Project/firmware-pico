@@ -1,5 +1,7 @@
-# Hey adding some pico code in here
+# Hello There
 
-## and working on getting comfortable with git usage
+## Adding some pico code in here with Python and C
 
-## seems  to be tricky at times with mergings ( " )( O_o)( " )
+### and working on getting comfortable with git usage
+
+### seems  to be tricky at times with mergings ( " )( O_o)( " )
