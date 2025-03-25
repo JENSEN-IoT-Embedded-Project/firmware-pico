@@ -11,19 +11,29 @@ try:
         lcd = I2CLcd(i2c, devices[0], 2, 16)     
 except:
     pass
-    
 
-menu = ["Alarm", "Settings"]
-menu_items = len(menu) - 1
+button_pressed = False
+alarm_status = False
+menu_items = 1
 
 def led_screen(joystick_arg, counter):
+    
+    global button_pressed, alarm_status
+    alarm_status = True if button_pressed else False
     count = counter
+    
     if joystick_arg == "left":
         count -= 1
     elif joystick_arg == "right":
         count += 1
     elif joystick_arg == "button_pressed":
-        return True
+        if count == 0 and button_pressed == False:
+            button_pressed = not button_pressed
+            alarm_status = not alarm_status
+        else:
+            button_pressed = not button_pressed
+            alarm_status = not alarm_status
+        
     
     if count < 0:
         return menu_items
@@ -34,4 +44,5 @@ def led_screen(joystick_arg, counter):
 
 def display_led_screen(counter):
     lcd.clear()
+    menu = [(f"Alarm armed:    {alarm_status}"), "Settings"]
     lcd.putstr(menu[counter])
