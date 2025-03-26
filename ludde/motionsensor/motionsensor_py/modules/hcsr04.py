@@ -20,7 +20,10 @@ def distance_to_object(pin_out,pin_in) :
     timePassed = signalOn - signalOff
     distance_cm = (timePassed * 0.0343)/2
     utime.sleep(1)
-    return distance_cm
+    return round(distance_cm, 2) 
 
 
 
+'''while True :
+    print(distance_to_object(15,14))
+'''
