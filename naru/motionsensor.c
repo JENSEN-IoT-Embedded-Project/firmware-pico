@@ -3,7 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mosquitto.h>
-// to do -> wpa_supplicant for pico-w to connect to router
+#include "pico/cyw43_arch.h"
+
+#define WIFI_SSID "abzakh"
+#define WIFI_PASS "nartan1234567"
+
+void wifi(){
+cyw43_arch_init();
+printf("Connecting to WiFi: %s\n", WIFI_SSID);
+    if (cyw43_arch_wifi_connect_timeout_ms(WIFI_SSID, WIFI_PASS, CYW43_AUTH_WPA2_AES_PSK, 30000)) {
+        printf("Failed to connect to WiFi!\n");
+    } else {
+        printf("Connected to WiFi!\n");
+    }}
+    
 void mosq() {
     int rc;
     struct mosquitto *mosq; // mosq library
@@ -60,6 +73,7 @@ float measureDistance() {
 
 int main() {
     stdio_init_all();
+    wifi();
     gpio_init(trigger);
     gpio_init(echo);
     gpio_set_dir(trigger, GPIO_OUT);
