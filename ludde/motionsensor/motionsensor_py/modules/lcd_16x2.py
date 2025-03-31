@@ -1,5 +1,4 @@
 from machine import Pin,I2C
-from lcd_api import LcdApi
 from pico_i2c_lcd import I2cLcd
 from hcsr04 import distance_to_object
 import sys
