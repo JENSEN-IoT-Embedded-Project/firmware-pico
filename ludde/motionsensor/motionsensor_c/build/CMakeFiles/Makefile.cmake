@@ -17,7 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "_deps/picotool/picotoolTargets-release.cmake"
   "_deps/picotool/picotoolTargets.cmake"
   "pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/tmp/pioasmBuild-mkdirs.cmake"
-  "/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/src/CMakeLists.txt"
+  "/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/tests/CMakeLists.txt"
   "/home/ludvig/ws/packages/pico-sdk/CMakeLists.txt"
   "/home/ludvig/ws/packages/pico-sdk/cmake/Platform/PICO.cmake"
   "/home/ludvig/ws/packages/pico-sdk/cmake/generic_board.cmake"
@@ -285,7 +285,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "pico-sdk/src/rp2_common/pico_stdio/CMakeFiles/CMakeDirectoryInformation.cmake"
   "pico-sdk/src/rp2_common/pico_stdlib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "pico-sdk/docs/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -295,5 +295,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default_library.dir/DependInfo.cmake"
   "pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/pioasmBuild.dir/DependInfo.cmake"
   "pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/DependInfo.cmake"
-  "src/CMakeFiles/motionsensor.dir/DependInfo.cmake"
+  "tests/CMakeFiles/tests.dir/DependInfo.cmake"
   )

@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/cmake_install.cmake")
+  include("/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/tests/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
