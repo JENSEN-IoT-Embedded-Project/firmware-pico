@@ -1,3 +1,0 @@
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate.dir
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool-subbuild/CMakeFiles/edit_cache.dir
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool-subbuild/CMakeFiles/rebuild_cache.dir
