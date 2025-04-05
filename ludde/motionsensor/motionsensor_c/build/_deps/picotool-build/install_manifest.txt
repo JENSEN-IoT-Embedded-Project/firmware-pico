@@ -1,5 +1,0 @@
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool/picotool
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool/picotoolTargets.cmake
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool/picotoolTargets-release.cmake
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool/picotoolConfig.cmake
-/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/_deps/picotool/picotoolConfigVersion.cmake
