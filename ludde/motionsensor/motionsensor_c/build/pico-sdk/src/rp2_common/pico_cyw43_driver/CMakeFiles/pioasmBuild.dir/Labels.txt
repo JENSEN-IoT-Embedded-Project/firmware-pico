@@ -1,0 +1,13 @@
+# Target labels
+ pioasmBuild
+# Source files and their labels
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/pioasmBuild
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/pioasmBuild.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/pioasmBuild-complete.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-build.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-configure.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-download.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-install.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-mkdir.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-patch.rule
+/home/ludvig/ws/edu-ws/firmware-pico/ludde/motionsensor/motionsensor_c/build/pico-sdk/src/rp2_common/pico_cyw43_driver/pioasm/src/pioasmBuild-stamp/pioasmBuild-update.rule
