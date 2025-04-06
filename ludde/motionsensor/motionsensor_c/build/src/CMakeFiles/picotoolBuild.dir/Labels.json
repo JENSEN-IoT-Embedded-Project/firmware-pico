@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/CMakeFiles/picotoolBuild"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/CMakeFiles/picotoolBuild.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/CMakeFiles/picotoolBuild-complete.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-build.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-configure.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-download.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-install.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-mkdir.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-patch.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-test.rule"
+		},
+		{
+			"file" : "/Users/ludvignorin/ws/edu-ws/school/embedded_edu/groupproj/firmware-pico/ludde/motionsensor/motionsensor_c/build/src/picotool/src/picotoolBuild-stamp/picotoolBuild-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"picotoolBuild"
+		],
+		"name" : "picotoolBuild"
+	}
+}
