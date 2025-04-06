@@ -14,8 +14,8 @@ BROKER_ADDRESS = "192.168.0.23"  # Replace with your MQTT broker IP or domain
 MQTT_TOPIC = "motion/topic"
 
 # Wi-Fi Settings
-SSID = "Trollskogen"  # Replace with your Wi-Fi name
-PASSWORD = "NC1CQoTGfO#"  # Replace with your Wi-Fi password
+SSID = "ssid"  # Replace with your Wi-Fi name
+PASSWORD = "password"  # Replace with your Wi-Fi password
 
 # Initialize Components
 def initialize_components():
