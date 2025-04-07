@@ -1,21 +1,27 @@
-cmake_minimum_required(VERSION 3.13)
-set(CMAKE_ASM_COMPILER /usr/bin/arm-none-eabi-as)
-project(pico_mqtt C CXX ASM)
+cmake_minimum_required(VERSION 3.19)
 set(PICO_BOARD pico_w)
-include(/home/narulinux/github/pico-sdk/external/pico_sdk_import.cmake)
+set(PICO_SDK_FETCH_FROM_GIT on)
+include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+project(pico_mqtt C CXX)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
-add_executable(pico_mqtt motionsensor.c)
+
+add_executable(pico_mqtt motionsensornew.c)
+target_include_directories(pico_mqtt PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # Enable USB output for debugging (if needed)
-pico_enable_stdio_usb(pico_mqtt 1)
+pico_enable_stdio_usb(${PROJECT_NAME} 1)
+pico_enable_stdio_uart(${PROJECT_NAME} 1)
+
 
 # Link required libraries
 target_link_libraries(pico_mqtt 
-    pico_stdlib 
-    pico_cyw43_arch_none  
-    mosquitto  
+    pico_stdlib
+    hardware_gpio
+    pico_cyw43_arch_lwip_threadsafe_background
 )
-
 
 pico_add_extra_outputs(pico_mqtt)

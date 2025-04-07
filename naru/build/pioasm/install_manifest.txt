@@ -1,0 +1,5 @@
+/home/narulinux/IoT/firmware-pico/naru/build/pioasm-install/pioasm/pioasm
+/home/narulinux/IoT/firmware-pico/naru/build/pioasm-install/pioasm/pioasmTargets.cmake
+/home/narulinux/IoT/firmware-pico/naru/build/pioasm-install/pioasm/pioasmTargets-release.cmake
+/home/narulinux/IoT/firmware-pico/naru/build/pioasm-install/pioasm/pioasmConfig.cmake
+/home/narulinux/IoT/firmware-pico/naru/build/pioasm-install/pioasm/pioasmConfigVersion.cmake
