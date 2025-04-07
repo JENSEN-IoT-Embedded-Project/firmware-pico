@@ -2,8 +2,8 @@
 #include "pico/cyw43_arch.h"
 #include <stdio.h>
 
-#define WIFI_SSID "placeholder"
-#define WIFI_PASS "placeholder"
+#define WIFI_SSID "x"
+#define WIFI_PASS "x"
 
 // Wi-Fi connection setup
 void wifi() {
@@ -19,6 +19,7 @@ void wifi() {
 // Ultrasonic distance sensor code
 const uint trigger = 2;
 const uint echo = 3;
+const uint buzzer = 14;
 
 float measureDistance() {
     gpio_put(trigger, 0);
@@ -40,21 +41,30 @@ float measureDistance() {
     return distance;
 }
 
+void buzz(int buzz_dur) {
+	gpio_put(buzzer, 1);  
+	sleep_ms(buzz_dur);       
+	gpio_put(buzzer, 0); 
+}
+
 int main() {
     stdio_init_all();
     wifi(); // Connect to Wi-Fi
 
     gpio_init(trigger);
     gpio_init(echo);
+    gpio_init(buzzer);
+    
     gpio_set_dir(trigger, GPIO_OUT);
     gpio_set_dir(echo, GPIO_IN);
+    gpio_set_dir(buzzer, GPIO_OUT);
 
     while (true) {
         float distance = measureDistance();
         printf("Distance: %.2f cm\n", distance);
 
         if (distance < 10) { // If an object is detected within 10cm
-            printf("Object detected, sending MQTT message!\n");
+        buzz(500);
             sleep_ms(1000); // Delay to avoid multiple triggers
         }
 
