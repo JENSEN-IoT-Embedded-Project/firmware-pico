@@ -182,17 +182,17 @@ cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast:
 .PHONY : cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast
 
 #=============================================================================
-# Target rules for targets named motionsensor
+# Target rules for targets named tests
 
 # Build rule for target.
-motionsensor: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 motionsensor
-.PHONY : motionsensor
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
 
 # fast build rule for target.
-motionsensor/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/motionsensor.dir/build.make src/CMakeFiles/motionsensor.dir/build
-.PHONY : motionsensor/fast
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/build
+.PHONY : tests/fast
 
 # Help Target
 help:
@@ -207,7 +207,7 @@ help:
 	@echo "... pioasmBuild"
 	@echo "... bs2_default"
 	@echo "... bs2_default_library"
-	@echo "... motionsensor"
+	@echo "... tests"
 .PHONY : help
 
 
