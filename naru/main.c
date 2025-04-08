@@ -2,12 +2,13 @@
 #include "pico/cyw43_arch.h"
 #include <stdio.h>
 
-#define WIFI_SSID "x"
-#define WIFI_PASS "x"
+#define WIFI_SSID "Abzakh"
+#define WIFI_PASS "nartan1234567"
 
 // Wi-Fi connection setup
 void wifi() {
-    cyw43_arch_init();
+    cyw43_arch_init(); // unsure if this works only with pico_cyw43_arch_none, but since i couldnt build with this cant check
+    cyw43_arch_enable_sta_mode(); // this is ONLY used with pico_cyw43_arch_lwip_threadsafe_background
     printf("Connecting to WiFi: %s\n", WIFI_SSID);
     if (cyw43_arch_wifi_connect_timeout_ms(WIFI_SSID, WIFI_PASS, CYW43_AUTH_WPA2_AES_PSK, 30000)) {
         printf("Failed to connect to WiFi!\n");
@@ -50,7 +51,7 @@ void buzz(int buzz_dur) {
 int main() {
     stdio_init_all();
     wifi(); // Connect to Wi-Fi
-
+    
     gpio_init(trigger);
     gpio_init(echo);
     gpio_init(buzzer);
