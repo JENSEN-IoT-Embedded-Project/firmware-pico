@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
-add_executable(pico_mqtt motionsensornew.c)
+add_executable(pico_mqtt main.c)
 target_include_directories(pico_mqtt PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # Enable USB output for debugging (if needed)
