@@ -9,7 +9,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
-add_executable(pico_mqtt main.c)
+
+add_executable(pico_mqtt main2.c)
 target_include_directories(pico_mqtt PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # Enable USB output for debugging (if needed)
@@ -17,12 +18,14 @@ pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_enable_stdio_uart(${PROJECT_NAME} 1)
 
 
+
 # Link required libraries
 target_link_libraries(pico_mqtt 
     pico_stdlib
     hardware_gpio
     pico_cyw43_arch_lwip_threadsafe_background # requires headerfile in include folder lwipopts
-    #pico_cyw43_arch_none couldnt build w this(some header problem) 
+    #pico_cyw43_arch_none couldnt build w this(some header problem)
+    mosquitto
 )
 
 pico_add_extra_outputs(pico_mqtt)
