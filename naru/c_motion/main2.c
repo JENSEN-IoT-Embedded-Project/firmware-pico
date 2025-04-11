@@ -2,9 +2,9 @@
 #include "pico/cyw43_arch.h"
 #include <stdio.h>
 #include "wifi_config.h"
-#include <mosquitto.h>
+#include "hardware/i2c.h"
+#include "lcd.h"
 
-struct mosquitto *mosq; // Declare mosquitto client globally
 
 // Wi-Fi connection setup
 void wifi() {
@@ -18,38 +18,14 @@ void wifi() {
     }
 }
 
-void mosq_send() {
-    int rc; //returncode
-
-    mosquitto_lib_init(); //to use mosq.h
-
-    mosq = mosquitto_new("pico-w", true, NULL); // name, clean session true, false kom ihåg data, null (ingen custom data)
-    if (!mosq) {
-        printf("can't start mosq\n");
-    }
-
-    rc = mosquitto_connect(mosq, "192.168.1.231", 1883, 10);    // Connect to the broker (IP, port, keepalive)
-    if (rc != MOSQ_ERR_SUCCESS) { // om returncode inte är (predefined success i mosq lib) så return typ av error code
-        printf("can't connect, return code: %d\n", rc);
-        mosquitto_destroy(mosq);
-        mosquitto_lib_cleanup();
-    }
-
-    mosquitto_loop_start(mosq);
-
-    // struct, message id(null = autoassign), topic, size in bytes, message, QoS(1 gång), om brokern ska komma ihåg(false for now) 
-    rc = mosquitto_publish(mosq, NULL, "test", 22, "pico sensor triggered!", 1, false);
-    if (rc != MOSQ_ERR_SUCCESS) {
-        printf("failed to publish message, return code: %d\n", rc);
-    }
-
-    sleep(2);
-}
-
 // Ultrasonic distance sensor code
 const uint trigger = 2;
 const uint echo = 3;
 const uint buzzer = 14;
+const uint SDA_PIN = 4;
+const uint SCL_PIN = 5;
+
+
 
 float measureDistance() {
     gpio_put(trigger, 0);
@@ -88,20 +64,33 @@ int main() {
     gpio_set_dir(trigger, GPIO_OUT);
     gpio_set_dir(echo, GPIO_IN);
     gpio_set_dir(buzzer, GPIO_OUT);
-
+    
+    // Initialize I2C0 at 100kHz on default SDA and SCL pins for the Pico
+    i2c_init(i2c0, 100 * 1000);
+    gpio_set_function(SDA_PIN, GPIO_FUNC_I2C);
+    gpio_set_function(SCL_PIN, GPIO_FUNC_I2C);
+    gpio_pull_up(SDA_PIN);
+    gpio_pull_up(SCL_PIN);
+	lcd_init();
+    
     while (true) {
         float distance = measureDistance();
-        printf("Distance: %.2f cm\n", distance);
+        
 
+		char buffer[16];
+		snprintf(buffer, sizeof(buffer), "dist: %.2f cm", distance); //convert float to string 
+
+		lcd_clear();
+		lcd_set_cursor(0, 0);
+		lcd_print(buffer);
+		
         if (distance < 10) { // If an object is detected within 10cm
         buzz(500);
-        mosq_send();
             sleep_ms(1000); // Delay to avoid multiple triggers
         }
 
         sleep_ms(100); // Small delay between measurements
     }
-
 
     return 0;
 }
