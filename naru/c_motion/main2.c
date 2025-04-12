@@ -76,7 +76,32 @@ int main() {
     while (true) {
         float distance = measureDistance();
         
+		/* NOTE(@Rackhamn):
+  			move buffer out into the highest scope
+     			can remove the "dist: " and " cm" from the snprintf
+			we know those are to be written out and know the sizes of them
+   			then all we need to do is "corrently" convert the float/double into a string variable
 
+      			final print would be something like:
+	 		const char * msg_first = "dist: ";
+    			const size_t msg_first_len = strlen(msg_first);
+
+       			const char * msg_last = " cm";
+	  		const char * msg_last_len = strlen(msg_last);
+
+     			char msg_real[32] = { 0 };
+			size_t msg_real_len = 0;
+
+			float distance = 192.321f;
+   			// * https://www.ibm.com/docs/en/zos/3.1.0?topic=functions-fcvt-convert-double-string
+   				*** here many different functions can be used to convert real values (float / double) into integers and ascii strings ***
+
+			int exponent = ftoa(distance, msg_real);
+   
+	 		lcd_string(&lcd, msg_first, msg_first_len);
+    			lcd_string(&lcd, msg_real, msg_real_len);
+       			lcd_string(&lcd, msg_last, msg_last_len);
+		*/
 		char buffer[16];
 		snprintf(buffer, sizeof(buffer), "dist: %.2f cm", distance); //convert float to string 
 
