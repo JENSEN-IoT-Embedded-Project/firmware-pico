@@ -45,7 +45,7 @@ int main() {
         distance = (time_passed * 0.0343)/2;
 
         printf("distance: %.4f in cm\n", distance);
-        sleep_ms(1000);
+        sleep_ms(100);
     }
 }
 
