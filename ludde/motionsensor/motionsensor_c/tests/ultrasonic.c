@@ -1,6 +1,5 @@
 #include "pico/stdlib.h"
 #include "pico/time.h"
-#include "hardware/timer.h"
 #include <inttypes.h>
 #include <stdio.h>
 

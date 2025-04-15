@@ -1,4 +1,4 @@
-add_executable(tests ultrasonic.c)
+add_executable(tests soniclcd.c)
 
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_add_extra_outputs(${PROJECT_NAME})
