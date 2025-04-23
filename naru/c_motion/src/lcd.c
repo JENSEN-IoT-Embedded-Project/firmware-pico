@@ -17,8 +17,8 @@ void lcd_toggle_enable(uint8_t value) {
 }
 
 void lcd_send_byte(uint8_t value, int mode) {
-    uint8_t high = mode | (value & 0xF0) | LCD_BACKLIGHT;
-    uint8_t low = mode | ((value << 4) & 0xF0) | LCD_BACKLIGHT;
+	uint8_t high = mode | (value & 0xF0) | LCD_BACKLIGHT;
+	uint8_t low = mode | ((value << 4) & 0xF0) | LCD_BACKLIGHT;
 
     i2c_write_byte(high);
     lcd_toggle_enable(high);
