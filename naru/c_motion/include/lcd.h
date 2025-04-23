@@ -92,13 +92,8 @@ void lcd_init(void) {
     sleep_ms(1);
     lcd_send_command(0x02);  // Set to 4-bit mode
 
-    // Function set: 4-bit mode, 2 lines (the 5x10 dots flag is usually 0 for 16x2 LCD)
     lcd_send_command(LCD_FUNCTIONSET | LCD_2LINE);
-
-    // Display control: turn the display on (no cursor or blinking needed here)
     lcd_send_command(LCD_DISPLAYCONTROL | LCD_DISPLAYON);
-
-    // Entry mode: set text direction to left-to-right
     lcd_send_command(LCD_ENTRYMODESET | LCD_ENTRYLEFT);
 
     // Clear the display
