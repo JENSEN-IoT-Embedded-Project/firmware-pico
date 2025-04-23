@@ -28,30 +28,28 @@ int main() {
     gpio_pull_up(SDA_PIN);
     gpio_set_function(SCL_PIN, GPIO_FUNC_I2C);
     gpio_pull_up(SCL_PIN);
-	lcd_init();
+    lcd_init();
     
     while (true) {
     	float distance = measureDistance();
     	bool alarm_react = (distance > ALARM_MIN && distance < ALARM_MAX);
-		bool alarm_triggered = (distance < ALARM_TRIG);
-
+    	bool alarm_triggered = (distance < ALARM_TRIG);
     	char buffer[16];
-		snprintf(buffer, sizeof(buffer), "%.2f cm", distance); //float converter
-		
+    	snprintf(buffer, sizeof(buffer), "%.2f cm", distance); //float converter
 		lcd_search(buffer); // motion sensor printer
 		
-		if (alarm_react){ 
+		if (alarm_react){
 			lcd_warning(buffer);
 			buzz(200);
 		}
 		
-        if (alarm_triggered) { 
-   			lcd_alarm(buffer);
-   			buzz(2000);
-            sleep_ms(500); // Delay to avoid multiple triggers
+        if (alarm_triggered){
+        	lcd_alarm(buffer);
+        	buzz(2000);
+        	sleep_ms(500); // Delay to avoid multiple triggers
         }
         sleep_ms(250); // Small delay between measurements
-    }
+	}
 
     return 0;
 }
