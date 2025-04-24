@@ -8,7 +8,7 @@
 #define ECHO 15
 
 // buzzes buzzer :)
-void buzz(uint32_t time) { // time in ms
+void buzz(uint32_t time) { // time in ms (length of buzzing sound)
   gpio_put(BUZZ, 1);
   sleep_ms(time);
   gpio_put(BUZZ, 0);
@@ -43,7 +43,7 @@ int read_distance() {
 
 // calibration reads value 10 times and returns the average
 // bright led indicates calibration is ongoing
-int pico_calibration(uint32_t time) { //time in ms
+int pico_calibration(uint32_t time) { //time in ms (time = time between calibration readings)
   uint32_t average = 0;
   //activate LED on pin 13
   gpio_put(LED, 1);
