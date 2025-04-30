@@ -1,4 +1,8 @@
-add_executable(tests soniclcd.c)
+
+add_executable(test wifi.c)
+#before your run cmake
+add_compile_definitions(SSID=\"$ENV{WIFI_SSID}\")
+add_compile_definitions(PWD=\"$ENV{WIFI_PASSWORD}\")
 
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_add_extra_outputs(${PROJECT_NAME})

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 set(PICO_BOARD pico_w)
 include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
-project(tests LANGUAGES C CXX ASM)
+project(test LANGUAGES C CXX ASM)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 set(CMAKE_C_STANDARD 11)
