@@ -1,4 +1,4 @@
-add_executable(motionsensor main.c)
+add_executable( main.c)
 
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 
