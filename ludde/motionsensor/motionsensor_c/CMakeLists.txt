@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 add_subdirectory(include)
-add_subdirectory(tests)
+add_subdirectory(src)
 add_subdirectory(lwip)
 
 
