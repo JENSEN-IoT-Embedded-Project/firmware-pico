@@ -1,6 +1,6 @@
 from machine import Pin,I2C
 from pico_i2c_lcd import I2cLcd
-from hcsr04 import distance_to_object
+#from hcsr04 import distance_to_object
 import sys
 
 #function to return the address of the lcd screen
@@ -32,6 +32,6 @@ def display_lcd(lcd,row1,row2,length) :
     lcd.putstr(str(row2))
 
 
-
+print(scan_for_addr(4,5))
 
 
