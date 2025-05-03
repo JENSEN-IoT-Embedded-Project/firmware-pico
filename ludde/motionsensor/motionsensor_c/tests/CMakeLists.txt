@@ -1,5 +1,5 @@
 
-add_executable(test wifi.c)
+add_executable(test ultrasonic.c)
 #before your run cmake
 add_compile_definitions(SSID=\"$ENV{WIFI_SSID}\")
 add_compile_definitions(PWD=\"$ENV{WIFI_PASSWORD}\")
