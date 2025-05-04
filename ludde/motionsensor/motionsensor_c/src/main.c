@@ -27,6 +27,11 @@ int main() {
     for(int i = 0; i < size; i++ ) {
         printf("%.2f\n", calibration_data[i]);
     }
+    set_reference_level(&reference_level,calibration_data,size);
+
+    printf("reference_level %.2f\n",reference_level);
+
+
 
     free(calibration_data);
     return 0;
