@@ -14,6 +14,7 @@ int main() {
     gpio_set_dir(TRIGG,1);
     gpio_set_dir(ECHO,0);
     int size = 10;
+    double tolerance_level = 2;
     double reference_level = 0;
     double* calibration_data = run_callibration(TRIGG,ECHO,size);
 
@@ -30,9 +31,15 @@ int main() {
     set_reference_level(&reference_level,calibration_data,size);
 
     printf("reference_level %.2f\n",reference_level);
-
-
-
     free(calibration_data);
+
+    while(1) {
+
+        if(!motion_scan(TRIGG, ECHO, reference_level, tolerance_level)){
+            break;
+        }
+    }
+    printf("motion_detected\n");
+
     return 0;
 }
