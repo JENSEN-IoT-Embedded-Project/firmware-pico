@@ -19,7 +19,7 @@ double* run_callibration(const uint pin1, const uint pin2,int size) {
 
     for(int i = 0; i < size; i++){
         printf("loop %d\n",i);
-        sleep_ms(1000);
+        sleep_ms(100);
         gpio_put(pin1,1);
         sleep_us(10);
         gpio_put(pin1,0);
@@ -44,7 +44,7 @@ double* run_callibration(const uint pin1, const uint pin2,int size) {
 };
 
 int calibration_quality_ok(double* arr, int size, int tolerance_value) {
-    //sort the array
+    //bubble sort the array
     for(int i = 0 ; i < size -1 ; i++) {
         for(int j = 0; j < size-1; j++) {
             if(arr[j] > arr[j+1]) {
@@ -58,10 +58,26 @@ int calibration_quality_ok(double* arr, int size, int tolerance_value) {
         return 0;
     }
     return 1;
-}
+};
 
-/*void set_reference_level(double* value,double arr[],size) {
-    for(int i = 0; i < size; i++*/
+void set_reference_level(double *value,double arr[],int size) { 
+    double reference_level = 0;
+    for(int i = 0; i < size; i++) {
+        reference_level += arr[i];
+    }
+    *value = reference_level/size;
+};
+
+int motion_scan(const uint gpio_out,const uint gpio_in,double reference_level) {
+//Börja här 
+};
+/*
+hur vill jag göra denna?
+while loop i denna?
+return om den mäter ett värde som är mindre än ... enkelt att bygga på för att kunna lägga till tillexempel authetisering.
+om inte motionscan  så kan den direkt hoppa in i mqttn för att skicka datan */
+
+
 
 
 
