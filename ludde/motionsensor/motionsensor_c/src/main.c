@@ -3,7 +3,16 @@
 #include "pico/time.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "pico/cyw43_arch.h"
+#include "wifi.h"
 
+#ifndef SSID
+#define SSID "default_ssid"
+#endif
+
+#ifndef PWD
+#define PWD "default_pwd"
+#endif
 
 int main() {
     stdio_init_all();
@@ -14,10 +23,14 @@ int main() {
     gpio_set_dir(TRIGG,1);
     gpio_set_dir(ECHO,0);
     int size = 10;
-    double tolerance_level = 2;
+    double tolerance_level = 1;
     double reference_level = 0;
-    double* calibration_data = run_callibration(TRIGG,ECHO,size);
+    double* calibration_data;
 
+    if(connect_to_wifi(SSID,PWD)) {
+        
+    }
+    calibration_data = run_callibration(TRIGG,ECHO,size);
     if(!calibration_quality_ok(calibration_data,size,2)){
             printf("WARNING:Callibration failed");
             free(calibration_data);

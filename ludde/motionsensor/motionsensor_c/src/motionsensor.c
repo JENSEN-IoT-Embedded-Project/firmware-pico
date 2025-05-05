@@ -91,10 +91,11 @@ int motion_scan(const uint gpio_out,const uint gpio_in,double reference_level,do
 
         time_passed = absolute_time_diff_us(time_start,time_end);
         distance = (time_passed * 0.0343)/2;
-        if(distance >= (reference_level + tolerance_level) || distance <=(reference_level - tolerance_level)) {
-            return 1;
-        }
+        printf("%.2f\n",distance);
         sleep_ms(100);
+        if(distance >= (reference_level + tolerance_level) || distance <=(reference_level - tolerance_level)) {
+            return 0;
+        }
     }
 
 };
