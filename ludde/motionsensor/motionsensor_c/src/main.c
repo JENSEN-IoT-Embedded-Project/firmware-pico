@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include "pico/cyw43_arch.h"
 #include "wifi.h"
+#include "lwip/apps/mqtt.h"
+#include "lwip/ip_addr.h"
+#include "mqtt.h"
 
 #ifndef SSID
 #define SSID "default_ssid"
@@ -12,6 +15,14 @@
 
 #ifndef PWD
 #define PWD "default_pwd"
+#endif
+
+#ifndef MQTT_SERVER
+#define MQTT_SERVER "default_mqtt_server"
+#endif
+
+#ifndef CLIENT_ID
+#define CLIENT_ID "pico_1" 
 #endif
 
 int main() {
@@ -22,14 +33,24 @@ int main() {
     gpio_init(ECHO);
     gpio_set_dir(TRIGG,1);
     gpio_set_dir(ECHO,0);
+    //variables for calibration of motionssensor
     int size = 10;
     double tolerance_level = 1;
     double reference_level = 0;
     double* calibration_data;
+    //variables for mqtt connection
+    mqtt_client_t *client = NULL;
+    struct mqtt_connect_client_info_t pico;
 
     if(connect_to_wifi(SSID,PWD)) {
-        
+ 
     }
+    sleep_ms(1000);
+    //sätt upp connection till mqtt
+    if(!mqtt_connect(&client, MQTT_SERVER,CLIENT_ID, &pico)) {
+            printf("connection setup failed\n");
+    }
+    sleep_ms(1000);
     calibration_data = run_callibration(TRIGG,ECHO,size);
     if(!calibration_quality_ok(calibration_data,size,2)){
             printf("WARNING:Callibration failed");
@@ -49,10 +70,10 @@ int main() {
     while(1) {
 
         if(!motion_scan(TRIGG, ECHO, reference_level, tolerance_level)){
+            mqtt_pub_motion_read(client,"motion/sensor","motion_detected"); 
             break;
         }
     }
-    printf("motion_detected\n");
 
     return 0;
 }
