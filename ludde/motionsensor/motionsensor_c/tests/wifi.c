@@ -58,7 +58,7 @@ int main() {
 
 
    
-   //Mosquitto code here.
+   //mqtt code here.
     mqtt_client_t *client = mqtt_client_new();
     if(!client) {
         printf("Failed to create MQTT client\n");
@@ -84,7 +84,7 @@ int main() {
 
     sleep_ms(10000);
 
-    mqtt_client_connect(client, &broker_ip, MQTT_PORT, mqtt_connected_cb, NULL, &pico);
+    mqtt_client_connect(client, &broker_ip, MQTT_PORT, mqtt_connected_cb, NULL, pico);
 
     while(1) {
         cyw43_arch_poll();
