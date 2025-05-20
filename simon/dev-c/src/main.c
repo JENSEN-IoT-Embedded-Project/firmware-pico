@@ -2,7 +2,6 @@
 #include "pico/cyw43_arch.h"
 #include "lwip/apps/mqtt.h"
 #include "lwip/ip_addr.h"
-#include "wifi_config.h"
 #include "lwip/dns.h"
 #include <stdio.h>
 #include "lwip/timeouts.h"

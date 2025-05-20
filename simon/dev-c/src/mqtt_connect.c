@@ -3,6 +3,8 @@
 
 #include "lwip/err.h"
 #include "lwip/apps/mqtt.h"
+#include "lwip/dns.h"
+#include "lwip/ip_addr.h"
 
 #include "mqtt_connect.h"
 #include "config.h"
@@ -10,6 +12,12 @@
 static mqtt_client_t *client = NULL;
 volatile bool mqtt_is_connected = false;
 volatile bool mqtt_connecting = false; 
+
+static struct mqtt_connect_client_info_t ci = {
+    .client_id = DEVICE_ID,
+    .keep_alive = 60,
+    .will_qos = 0,
+};
 
 void mqtt_pub_request_cb(void *arg, err_t result) {
     if (result == ERR_OK) {
@@ -51,41 +59,46 @@ void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status
     mqtt_connecting = false;  // Sätt flaggan till false när anslutningen är klar
 }
 
-
-bool connect_mqtt() {
-    if (mqtt_connecting || mqtt_is_connected) {
-        return false;  // Om anslutning pågår, gör inget nytt försök
+static void dns_cb(const char *name, const ip_addr_t *ipaddr, void *arg) {
+    if (ipaddr == NULL) {
+        printf("DNS failed for %s\n", name);
+        mqtt_connecting = false;
+        return;
     }
 
-    ip_addr_t broker_ip;
-    IP4_ADDR(&broker_ip, 192, 168, 0, 222);  // IP-adressen för MQTT-brokern
+    printf("Resolved %s to %s\n", name, ipaddr_ntoa(ipaddr));
+    mqtt_client_connect(client, ipaddr, 1883, mqtt_connection_cb, NULL, &ci);
+}
 
-    printf("Attempting to allocate MQTT client...\n");
+bool connect_mqtt() {
+    if (mqtt_connecting || mqtt_is_connected) return false;
 
     if (client) {
-        mqtt_disconnect(client);  // Säkerhetsåtgärd
+        mqtt_disconnect(client);
         client = NULL;
     }
 
     client = mqtt_client_new();
     if (!client) {
-        printf("Failed to allocate mqtt client\nCHECK MEMORY USAGE\n");
+        printf("Failed to allocate MQTT client\n");
         return false;
     }
 
-    struct mqtt_connect_client_info_t ci = {
-        .client_id = DEVICE_ID,
-        .client_user = NULL,
-        .client_pass = NULL,
-        .keep_alive = 60,
-        .will_topic = NULL,
-        .will_msg = NULL,
-        .will_qos = 0,
-        .will_retain = 0,
-    };
+    ip_addr_t resolved_ip;
+    err_t err = dns_gethostbyname(MQTT_BROKER_ADDR, &resolved_ip, dns_cb, NULL);
 
-    printf("Connecting to MQTT broker...\n");
-    mqtt_connecting = true;  // Sätt flaggan till true när anslutning startar
-    mqtt_client_connect(client, &broker_ip, 1883, mqtt_connection_cb, NULL, &ci);
+    if (err == ERR_OK) {
+        // Redan i cache – koppla direkt
+        printf("DNS (cached): %s -> %s\n", MQTT_BROKER_ADDR, ipaddr_ntoa(&resolved_ip));
+        mqtt_client_connect(client, &resolved_ip, 1883, mqtt_connection_cb, NULL, &ci);
+    } else if (err == ERR_INPROGRESS) {
+        // Callback kommer anropas när det är klart
+        printf("DNS lookup started for %s\n", MQTT_BROKER_ADDR);
+        mqtt_connecting = true;
+    } else {
+        printf("DNS error (%d)\n", err);
+        return false;
+    }
+
     return true;
 }
