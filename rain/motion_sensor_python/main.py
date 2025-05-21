@@ -10,7 +10,7 @@ I2C_NUM_ROWS = 2
 I2C_NUM_COLS = 16
 
 # MQTT Settings
-BROKER_ADDRESS = "192.168.0.23"  # Replace with your MQTT broker IP or domain
+BROKER_ADDRESS = "IP address"  # Replace with your MQTT broker IP or domain
 MQTT_TOPIC = "motion/topic"
 
 # Wi-Fi Settings
