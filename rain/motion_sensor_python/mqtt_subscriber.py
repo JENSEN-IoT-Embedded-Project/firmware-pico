@@ -17,7 +17,7 @@ def on_connect(client, userdata, flags, rc):
         print(f"Connection failed with code {rc}")
 
 # MQTT setup
-broker_address = "192.168.2.1"  # Replace with your broker's IP
+broker_address = ""  # Replace with your broker's IP
 client = mqtt.Client("Broker_Subscriber")
 client.on_connect = on_connect
 client.on_message = on_message
