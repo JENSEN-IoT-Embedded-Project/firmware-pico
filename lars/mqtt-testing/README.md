@@ -8,3 +8,6 @@ And the IP to the MQTT broker
 
 ## Obs: Fake sensordata for now
 22.5c temp data just to check the mqtt connections
+
+## Pico 2 w (wip)
+still messing around with this in c/c++
