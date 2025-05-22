@@ -101,23 +101,32 @@ It’s like having a smart security assistant that’s always watching and ready
 #System Diagram Mermaid: 
 
 ```mermaid
-graph TD;
-    A[Ultrasonic Motion Sensor] -->|Detects motion| B[Raspberry Pi Pico W]
-    B -->|Triggers alert| C[RGB Light]
-    B -->|Triggers sound| D[Buzzer]
-    B -->|Sends data| E[MQTT Broker - Raspberry Pi Zero]
-    E -->|Distributes data| F[Web Application]
-    E -->|Stores data| G[InfluxDB - TSDB]
-    F -->|Displays real-time motion logs| H[User Web Dashboard]
-    E -->|Triggers Twilio API| I[User Notification System]
-    I -->|Sends message| J[WhatsApp/SMS Notification]
+graph TD
+    A[Ultrasonic Motion Sensor] --> B[Raspberry Pi Pico W]
+    B --> C[RGB Light]
+    B --> D[Buzzer]
+    B --> E[MQTT Broker Raspberry Pi Zero]
+    E --> F[Web Application]
+    E --> G[InfluxDB TSDB]
+    F --> H[User Web Dashboard]
+    E --> I[User Notification System]
+    I --> J[WhatsApp SMS Notification]
 
-    style A fill:#f4a26145,stroke:#5,stroke-width:2px
-    style B fill:#e76f5167,stroke:#333223,stroke-width:2px
-    style E fill:#2a9d8f88,stroke:#333,stroke-width:2px
-    style I fill:#264653,stroke:#fff,stroke-width:2px
+    A -.->|Detects motion| B
+    B -.->|Triggers alert| C
+    B -.->|Triggers sound| D
+    B -.->|Sends data| E
+    E -.->|Distributes data| F
+    E -.->|Stores data| G
+    F -.->|Displays real-time motion logs| H
+    E -.->|Triggers Twilio API| I
+    I -.->|Sends message| J
 
-    ```
+    style A fill:#f4a26188,stroke:#333,stroke-width:2px
+    style B fill:#e76f5144,stroke:#333,stroke-width:2px
+    style E fill:#2a9d877f,stroke:#333,stroke-width:2px
+    style I fill:#26465388,stroke:#fff,stroke-width:2px
+```
 
 
 
