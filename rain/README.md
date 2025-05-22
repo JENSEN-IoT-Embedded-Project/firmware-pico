@@ -34,10 +34,12 @@
 
 7.Web Application HTTP Server
 
-#Complete description of all hardware and software needed for motion sensor project
+
+##Complete description of all hardware and software needed for motion sensor project
 
 
-Hardware Components:
+###Hardware Components:
+
 1.Raspberry Pi Pico W – A low-cost microcontroller board with built-in Wi-Fi, ideal for sensor-based projects.
 
 2.Raspberry Pi Zero – A compact and efficient single-board computer that can be used for processing data from sensors.
@@ -54,7 +56,8 @@ Hardware Components:
 
 8.LCD Screen (Optional) – Displays information such as motion detection logs, system status, or messages.
 
-Software Components:
+
+###Software Components:
 
 1.Thonny IDE – A lightweight and beginner-friendly Python IDE, useful for writing and testing MicroPython scripts.
 
@@ -74,7 +77,8 @@ Software Components:
 
 9.Web Application HTTP Server – Hosts a web interface to display motion sensor logs and real-time status.
 
-#System Description:
+
+##System Description:
 
 1. Detecting Motion (The Watcher)
 The Ultrasonic Motion Sensor is like a guard—it keeps scanning for movement. If something moves, the Raspberry Pi Pico W picks it up and sends the signal.
