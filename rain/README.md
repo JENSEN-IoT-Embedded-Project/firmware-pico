@@ -1,6 +1,6 @@
-#Components:For the motion sensor
+# Components:For the motion sensor
 
-##Hardware:
+## Hardware:
 
 1. Raspberry Pi Pico W
 
@@ -18,7 +18,7 @@
 
 8. A lcd screen (not necessary but good to have)
    
-##Software:   
+## Software:   
 
 1.Thony IDE 
 
@@ -35,50 +35,50 @@
 7.Web Application HTTP Server
 
 
-##Complete description of all hardware and software needed for motion sensor project
+## Complete description of all hardware and software needed for motion sensor project
 
 
-###Hardware Components:
+### Hardware Components:
 
-1.Raspberry Pi Pico W – A low-cost microcontroller board with built-in Wi-Fi, ideal for sensor-based projects.
+1. Raspberry Pi Pico W – A low-cost microcontroller board with built-in Wi-Fi, ideal for sensor-based projects.
 
-2.Raspberry Pi Zero – A compact and efficient single-board computer that can be used for processing data from sensors.
+2. Raspberry Pi Zero – A compact and efficient single-board computer that can be used for processing data from sensors.
 
-3.RGB Light – Adds visual effects by changing colors in response to motion detection.
+3. RGB Light – Adds visual effects by changing colors in response to motion detection.
 
-4.Resistors – Essential for controlling voltage levels and preventing damage to circuit components.
+4. Resistors – Essential for controlling voltage levels and preventing damage to circuit components.
 
-5.Buzzer – Emits an audible alert when motion is detected.
+5. Buzzer – Emits an audible alert when motion is detected.
 
-6.Ultrasonic Motion Sensor – Detects movement using ultrasonic waves; triggers the system when an object moves within a certain range.
+6. Ultrasonic Motion Sensor – Detects movement using ultrasonic waves; triggers the system when an object moves within a certain range.
 
-7.Cables – Used to connect various components and ensure proper electrical communication.
+7. Cables – Used to connect various components and ensure proper electrical communication.
 
-8.LCD Screen (Optional) – Displays information such as motion detection logs, system status, or messages.
-
-
-###Software Components:
-
-1.Thonny IDE – A lightweight and beginner-friendly Python IDE, useful for writing and testing MicroPython scripts.
-
-2.MicroPython – A compact version of Python optimized for microcontrollers like the Raspberry Pi Pico W.
-
-3.C/C++ – Provides low-level control and efficiency for programming the Raspberry Pi Pico W.
-
-4.Pico-SDK – A set of development tools, libraries, and examples for programming Raspberry Pi Pico with C/C++.
-
-5.WSL (Windows Subsystem for Linux) – Provides a Linux-like environment on Windows, used to run the MQTT broker and scripts.
-
-6.VS Code (Optional) – A powerful code editor used for developing, debugging, and running scripts.
-
-7.Twilio API – Enables SMS notifications or alerts when motion is detected.
-
-8.InfluxDB (Docker Container) – A time-series database used to store and analyze motion detection data.
-
-9.Web Application HTTP Server – Hosts a web interface to display motion sensor logs and real-time status.
+8. LCD Screen (Optional) – Displays information such as motion detection logs, system status, or messages.
 
 
-##System Description:
+### Software Components:
+
+1. Thonny IDE – A lightweight and beginner-friendly Python IDE, useful for writing and testing MicroPython scripts.
+
+2. MicroPython – A compact version of Python optimized for microcontrollers like the Raspberry Pi Pico W.
+
+3. C/C++ – Provides low-level control and efficiency for programming the Raspberry Pi Pico W.
+
+4. Pico-SDK – A set of development tools, libraries, and examples for programming Raspberry Pi Pico with C/C++.
+
+5. WSL (Windows Subsystem for Linux) – Provides a Linux-like environment on Windows, used to run the MQTT broker and scripts.
+
+6. VS Code (Optional) – A powerful code editor used for developing, debugging, and running scripts.
+
+7. Twilio API – Enables SMS notifications or alerts when motion is detected.
+
+8. InfluxDB (Docker Container) – A time-series database used to store and analyze motion detection data.
+
+9. Web Application HTTP Server – Hosts a web interface to display motion sensor logs and real-time status.
+
+
+## System Description:
 
 1. Detecting Motion (The Watcher)
 The Ultrasonic Motion Sensor is like a guard—it keeps scanning for movement. If something moves, the Raspberry Pi Pico W picks it up and sends the signal.
@@ -102,7 +102,7 @@ So, in simple terms: Our motion sensor detects movement, lights and sounds react
 It’s like having a smart security assistant that’s always watching and ready to notify the user the moment it spots something!
 
 
-#System Diagram Mermaid: 
+## System Diagram Mermaid: 
 
 ```mermaid
 graph TD
