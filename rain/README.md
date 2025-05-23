@@ -1,6 +1,6 @@
-# Components:For the motion sensor
+# Components: For the motion sensor
 
-## Hardware:
+## Hardware components:
 
 1. Raspberry Pi Pico W
 
@@ -18,9 +18,9 @@
 
 8. A lcd screen (To see the distance of the object)
    
-## Software:   
+## Software components:   
 
-1.Thony IDE 
+1. Thony IDE 
 
 2. MicroPython (Which is more compatible with the microcontroller pico w)
 
