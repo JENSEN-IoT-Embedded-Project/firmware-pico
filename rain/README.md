@@ -16,7 +16,7 @@
 
 7. Cables
 
-8. A lcd screen (not necessary but good to have)
+8. A lcd screen (To see the distance of the object)
    
 ## Software:   
 
