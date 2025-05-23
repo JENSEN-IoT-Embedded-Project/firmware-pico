@@ -18,21 +18,21 @@
 
 8. A lcd screen (To see the distance of the object)
    
-## Software components:   
+## Software components:
 
-1. Thony IDE 
+ 1. Thony IDE
 
-2. MicroPython (Which is more compatible with the microcontroller pico w)
+ 2.  MicroPython (Which is more compatible with the microcontroller pico w)
 
- 3.WSL(To run the MQTT broker and scripts)
+ 3. WSL(To run the MQTT broker and scripts)
 
- 4.VS code(Not mandatory but i ran my program in VS code also)
+ 4. VS code(Not mandatory but i ran my program in VS code also)
 
- 5.Twilio API
+ 5. Twilio API
 
- 6.InfluxDB(In Docker Container)
+ 6. InfluxDB(In Docker Container)
 
- 7.Web Application HTTP Server
+ 7. Web Application HTTP Server
 
 
 ## Complete description of all hardware and software needed for motion sensor project
