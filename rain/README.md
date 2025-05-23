@@ -102,7 +102,7 @@ So, in simple terms: Our motion sensor detects movement, lights and sounds react
 It’s like having a smart security assistant that’s always watching and ready to notify the user the moment it spots something!
 
 
-## System Diagram Mermaid: 
+## System Diagram: 
 
 ```mermaid
 graph TD
