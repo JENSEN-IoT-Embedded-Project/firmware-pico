@@ -26,7 +26,7 @@
 
  3. WSL(To run the MQTT broker and scripts)
 
- 4. VS code(Not mandatory but i ran my program in VS code also)
+ 4. VS code(Not mandatory but i ran some code in VS code also)
 
  5. Twilio API
 
